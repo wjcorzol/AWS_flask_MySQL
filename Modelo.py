@@ -42,7 +42,7 @@ class Lote(Model):
 
 class Usuario(Model):
     id_usuario = PrimaryKeyField()
-    cedula = CharField(max_length=50, unique=True)
+    cedula = CharField(max_length=50)
     nombre = CharField(max_length=50)
     apellido = CharField(max_length=50)
     sexo = CharField(max_length=1)
@@ -52,7 +52,7 @@ class Usuario(Model):
     acum_compras = DoubleField(default=0)
     n_bonos = IntegerField(default=0)
     username = CharField(max_length=50)
-    email = CharField(max_length=250, unique=True)
+    email = CharField(max_length=250)
     password = CharField(max_length=250)
     role = CharField(max_length=50, default='usuario externo')
 
@@ -70,26 +70,26 @@ def crearTablas():
     Lote.crearTabla()
     Usuario.crearTabla()
     
-# def registrar(usuario, contraseña, email, nombre, apellido, cedula, sexo, fecha_nac, direccion, ciudad):
-#     persona = Usuario(
-#         username = usuario,
-#         password = contraseña,
-#         email = email,
-#         nombre = nombre,
-#         apellido = apellido,
-#         cedula = cedula,
-#         sexo = sexo,
-#         fecha_nac = fecha_nac,
-#         direccion = direccion,
-#         ciudad = ciudad)
-#     persona.save()
+def registrar(usuario, contraseña, email, nombre, apellido, cedula, sexo, fecha_nac, direccion, ciudad):
+    persona = Usuario(
+        username = usuario,
+        password = contraseña,
+        email = email,
+        nombre = nombre,
+        apellido = apellido,
+        cedula = cedula,
+        sexo = sexo,
+        fecha_nac = fecha_nac,
+        direccion = direccion,
+        ciudad = ciudad)
+    persona.save()
 
-# def registroProducto(nombre_prod, inventario, presentacion, precio_und, desc_promo ):
-#     producto = Producto(
-#         nombre_prod = nombre_prod,
-#         inventario = inventario,
-#         presentacion = presentacion,
-#         precio_und = precio_und,
-#         desc_promo = desc_promo)
-#     producto.save()
+def registroProducto(nombre_prod, inventario, presentacion, precio_und, desc_promo ):
+    producto = Producto(
+        nombre_prod = nombre_prod,
+        inventario = inventario,
+        presentacion = presentacion,
+        precio_und = precio_und,
+        desc_promo = desc_promo)
+    producto.save()
 
